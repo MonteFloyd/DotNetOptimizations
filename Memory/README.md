@@ -1,5 +1,7 @@
 ## Memory related stuff
 
+Here is something cool to look about memory related stuff : https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html
+
 #### Use of stackalloc
 
 10000 sized array comparison between normal allocation and stack alloc allocation and operating on array
