@@ -2,6 +2,15 @@
 
 Here is something cool to look about memory related stuff : https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html
 
+Most important part for us : 
+
+Referencing | Time
+----------- | ----
+L1 Cache    | 1ns
+L2 Cache    | 4ns
+Main Memory | 100ns 
+
+
 #### Use of stackalloc
 
 10000 sized array comparison between normal allocation and stack alloc allocation and operating on array
