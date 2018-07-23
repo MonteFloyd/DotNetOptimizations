@@ -11,73 +11,63 @@ namespace DotNetBenchmark
     [MemoryDiagnoser]
     public class stackAllocTest
     {
-        public int[] inputArray;
+        public string[] inputArray;
 
         public System.Random random;
 
+
+
         public stackAllocTest()
         {
-            inputArray = new int[10000];
+            inputArray = new string[10000];
             random = new Random();
-            for(int i = 0; i< inputArray.Length; ++i)
-            {
-                inputArray[i] = (random.Next());
-            }
+
 
         }
 
 
+        [GlobalSetup]
+        public void Setup()
+        {
+            for (int i = 0; i < inputArray.Length; ++i)
+            {
+                for (int k = 0; k < 4; ++k)
+                {
+                    inputArray[i] += (random.Next(0, 9)).ToString();
+                }
+            }
+        }
 
         [Benchmark]
         public void normalOp()
         {
-            //Allocate the array
-            int[] copyArray = new int[inputArray.Length];
 
 
-            //Sample the original array
-            for (int i = 0; i < copyArray.Length; ++i)
+            for (int i = 0; i < inputArray.Length; ++i)
             {
-                copyArray[i] = inputArray[i];
+                string newString = inputArray[i].Substring(startIndex: 1, length: 3);
+
+                //inputArray[i] += newString;
             }
 
-            //Do operations on the sampled array
-            for (int i = 0; i < copyArray.Length; ++i)
-            {
-                ++copyArray[i];
-            }
-
-            //Use the modifications
-            for (int i = 0; i < copyArray.Length; ++i)
-            {
-                inputArray[i] = copyArray[i];
-            }
 
         }
 
         [Benchmark]
         public void stackAllocOp()
         {
-            //Allocate the array on stack
-            Span<int> copyArray = stackalloc int[1000];
-
-            //Sample the original array
-            for (int i = 0; i < copyArray.Length; ++i)
-            {
-                copyArray[i] = inputArray[i];
-            }
 
             //Do operations on the sampled array
-            for (int i = 0; i < copyArray.Length; ++i)
+            for (int i = 0; i < inputArray.Length; ++i)
             {
-                ++copyArray[i];
+                ReadOnlySpan<char> newString = inputArray[i].AsSpan().Slice(start: 1, length: 3);
+
+                //for(int k = 0; k< newString.Length; ++k)
+                //{
+                //    inputArray[i] += newString[k];
+                //}
             }
 
-            //Use the modifications
-            for (int i = 0; i < copyArray.Length; ++i)
-            {
-                inputArray[i] = copyArray[i];
-            }
 
 
         }
