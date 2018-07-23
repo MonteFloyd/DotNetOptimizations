@@ -31,7 +31,7 @@ Surprisingly there was not much difference with 100K elements.
 
 ![100k](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/layout100k.png)
 
-1 Million elements showed big difference.
+1 Million elements showed some difference.
 
 ![1M](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/Layout1M.png)
 
@@ -39,6 +39,6 @@ Surprisingly there was not much difference with 100K elements.
 
 ![10M](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/layout10M.png)
 
-Honestly I am not confident about my method of testing here, the results were close to what I expected but still there may be something wrong with my method. I am also not sure about 0 Allocated part in my tests.
+Honestly I am not confident about my method of testing here, the results were closer than what I expected but still there may be something wrong with my method. I am also not sure about 0 Allocated part in my tests.
 
 ### Marshal.AllocHGlobal
