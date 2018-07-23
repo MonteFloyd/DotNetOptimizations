@@ -13,14 +13,11 @@ Main Memory | 100ns
 
 ### [stackalloc vs normal allocation performance](https://github.com/MonteFloyd/DotNetOptimizations/blob/master/Memory/stackAllocTest.cs)
 
-10000 sized array comparison between normal allocation and stack alloc allocation and operating on array
+String operation performance comparison between normal allocation and stackalloc allocation
 
-![10k](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/stackAllocTest.png)
+Operations : Substring and Splice
 
-
-100000 sized array benchmark comparison between normal allocation and stackalloc allocation and operating on array
-
-![100k](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/stackalloc2.png)
+![10k](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/stackalloc100.png)
 
 
 ### [Sequential Struct Layout vs Class Access performance](https://github.com/MonteFloyd/DotNetOptimizations/blob/master/Memory/MemoryLayoutTest.cs)
