@@ -16,8 +16,11 @@ namespace DotNetBenchmark
 
         static void Main(string[] args)
         {
-
-            BenchmarkRunner.Run<stackAllocTest>();
+			//Test stackalloc performance vs normal alloc
+            //BenchmarkRunner.Run<stackAllocTest>();
+			
+			//Test Sequential struct layout vs class access performance
+			BenchmarkRunner.Run<MemoryLayoutTest>();
 
         }
     }
