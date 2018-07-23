@@ -11,7 +11,7 @@ L2 Cache    | 4ns
 Main Memory | 100ns 
 
 
-### stackalloc vs normal allocation performance
+### [stackalloc vs normal allocation performance](https://github.com/MonteFloyd/DotNetOptimizations/blob/master/Memory/stackAllocTest.cs)
 
 10000 sized array comparison between normal allocation and stack alloc allocation and operating on array
 
@@ -23,7 +23,7 @@ Main Memory | 100ns
 ![100k](https://raw.githubusercontent.com/MonteFloyd/DotNetOptimizations/master/images/stackalloc2.png)
 
 
-### Sequential Struct Layout vs Class Access performance
+### [Sequential Struct Layout vs Class Access performance](https://github.com/MonteFloyd/DotNetOptimizations/blob/master/Memory/MemoryLayoutTest.cs)
 
 I tried to see how much performance difference there is when we have structs with SequentialLayout(which is default) and we have classes(objects) all over the memory. I have expected a lot more cache misses in classes case but unfortunately couldn't test for those since BenchmarkDotNet wants Win8 for that.
 
